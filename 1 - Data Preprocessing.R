@@ -37,6 +37,6 @@ breast_cancer_raw <- breast_cancer_raw %>% mutate(class = case_when(class == 2 ~
 summary(breast_cancer_raw)
 
 # Save the formatted data
-write.csv(breast_cancer_raw, "data/processed/processed_data.csv", row.names = FALSE)
+readr::write_csv(breast_cancer_raw, "data/processed/processed_data.csv")
 
 

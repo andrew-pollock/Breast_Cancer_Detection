@@ -3,7 +3,7 @@
 library(dplyr)
 
 # Load the unprocessed data
-breast_cancer_raw <- readr::read_csv("Raw_Data/breast-cancer-wisconsin.data", col_names = FALSE)
+breast_cancer_raw <- readr::read_csv("data/raw/breast-cancer-wisconsin.data", col_names = FALSE)
 
 # Rename the variables
 names(breast_cancer_raw) <- c("id", "clump_thickness",  "uniform_size",  "uniform_shape", "marginal_adhesion", "epithelial_size", 
@@ -37,6 +37,6 @@ breast_cancer_raw <- breast_cancer_raw %>% mutate(class = case_when(class == 2 ~
 summary(breast_cancer_raw)
 
 # Save the formatted data
-write.csv(breast_cancer_raw, "preprocessed_data.csv", row.names = FALSE)
+write.csv(breast_cancer_raw, "data/processed/preprocessed_data.csv", row.names = FALSE)
 
 

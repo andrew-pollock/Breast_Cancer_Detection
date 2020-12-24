@@ -31,7 +31,7 @@ my_model <- train(class ~ .,
                   data = train_data,
                   method = "rpart",
                   trControl = my_training_settings,
-                  tuneLength = 5,
+                  tuneLength = 15,
                   metric = "Accuracy")
 
 # Lets have a look at the output from my training
@@ -50,4 +50,11 @@ confusionMatrix(predict(my_model, holdout_data),
                 holdout_data$class)
 # The model performs similar here compared to the CV accuracy
 # Getting ~ 92% accuracy on the holdout data
+
+
+# Final confusion matrix using all available data
+confusionMatrix(predict(my_model, cancer_data), 
+                cancer_data$class)
+
+
 

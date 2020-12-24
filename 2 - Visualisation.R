@@ -37,7 +37,6 @@ class_labelled_data <- cancer_data %>% mutate(class = factor(case_when(class == 
                       y = class_labelled_data$class, 
                       plot = "box", 
                       scales = list(y = list(relation = "free")),  
-                      #            auto.key = list(columns = 3),
                       labels = c("Clump Classification", "Variable Distribution"), 
                       main = "Distribution of Variables in Benign vs Malignant Clumps",
                       par.settings=list(box.rectangle = list(col = c("blue", "red"), fill=c("blue", "red"), alpha=0.3, lwd = 2),

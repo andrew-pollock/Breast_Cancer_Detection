@@ -57,4 +57,19 @@ confusionMatrix(predict(my_model, cancer_data),
                 cancer_data$class)
 
 
+# Create a vector of weights
+model_weights <- as.vector(case_when(train_data$class == "Benign" ~ 1, TRUE ~ 2))
+
+# Train the weighted model
+my_weighted_model <- train(class ~ ., 
+                  data = train_data,
+                  method = "rpart",
+                  trControl = my_training_settings,
+                  tuneLength = 15,
+                  metric = "Accuracy",
+                  weights = model_weights)
+
+# Weighted confusion matrix using all available data
+confusionMatrix(predict(my_weighted_model, cancer_data), 
+                cancer_data$class)
 

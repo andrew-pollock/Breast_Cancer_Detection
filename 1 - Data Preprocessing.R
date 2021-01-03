@@ -1,5 +1,4 @@
 
-#### Data Understanding ####
 library(dplyr)
 
 # Load the unprocessed data
